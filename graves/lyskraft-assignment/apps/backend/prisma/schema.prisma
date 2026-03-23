@@ -1,0 +1,143 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Store schema
+model Store {
+  id                  String       @id @default(uuid())
+  name                String
+  GSTIN               String
+  staff               StoreStaff[]
+  stocks              Stock[]
+  billedOrderItems    OrderItem[]  @relation("BillingStore")
+  fulfilledOrderItems OrderItem[]  @relation("FulfilmentStore")
+  address             Address      @relation("StoreAddress", fields: [addressId], references: [id])
+  addressId           String       @unique
+  createdAt           DateTime     @default(now())
+  updatedAt           DateTime?    @updatedAt
+}
+
+// Store staff schema
+model StoreStaff {
+  id        String    @id @default(uuid())
+  name      String
+  email     String    @unique
+  password  String
+  salt      String    @default("")
+  store     Store     @relation(fields: [storeId], references: [id])
+  storeId   String
+  orders    Order[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime? @updatedAt
+}
+
+// Product schema
+model Product {
+  id          String      @id @default(uuid())
+  title       String
+  description String
+  image       String
+  brand       String
+  sizes       String[]
+  color       String
+  price       Float
+  stocks      Stock[]
+  ordersItems OrderItem[] @relation("OrderItemProduct")
+  barcode     String
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime?   @updatedAt
+}
+
+// Stock schema
+model Stock {
+  id        String    @id @default(uuid())
+  quantity  Int
+  store     Store     @relation(fields: [storeId], references: [id])
+  storeId   String
+  product   Product   @relation(fields: [productId], references: [id])
+  productId String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime? @updatedAt
+}
+
+// Customer schema
+model Customer {
+  id              String    @id @default(uuid())
+  name            String
+  phone           String    @unique
+  isWhatsappOpted Boolean   @default(false)
+  addresses       Address[]
+  orders          Order[]
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime? @updatedAt
+}
+
+// Address schema
+model Address {
+  id          String    @id @default(uuid())
+  addressLine String
+  city        String
+  state       String
+  pincode     String
+  customer    Customer? @relation(fields: [customerId], references: [id])
+  customerId  String?
+  orders      Order[]
+  store       Store?    @relation("StoreAddress")
+  storeId     String?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime? @updatedAt
+}
+
+enum OrderStatus {
+  DRAFT
+  RUNNING
+  FULFILLED
+}
+
+model Order {
+  id            String      @id @default(uuid())
+  items         OrderItem[]
+  customer      Customer    @relation(fields: [customerId], references: [id])
+  customerId    String
+  address       Address?    @relation(fields: [addressId], references: [id])
+  addressId     String?
+  paymentStatus String
+  transactionId String
+  paymentMode   String
+  salesStaff    StoreStaff  @relation(fields: [salesStaffId], references: [id])
+  salesStaffId  String
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime?   @updatedAt
+  status        OrderStatus @default(DRAFT)
+}
+
+model OrderItem {
+  id                String    @id @default(uuid())
+  product           Product   @relation("OrderItemProduct", fields: [productId], references: [id])
+  productId         String
+  size              String
+  color             String
+  sellingPrice      Float
+  stockType         String
+  billingStore      Store     @relation("BillingStore", fields: [billingStoreId], references: [id])
+  billingStoreId    String
+  fulfilmentStore   Store?    @relation("FulfilmentStore", fields: [fulfilmentStoreId], references: [id])
+  fulfilmentStoreId String?
+  remarks           String?
+  order             Order     @relation(fields: [orderId], references: [id])
+  orderId           String
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime? @updatedAt
+  quantity          Int       @default(1)
+}

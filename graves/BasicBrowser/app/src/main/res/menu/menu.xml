@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_back"
+        android:icon="@drawable/left"
+        android:title="@string/back"
+        app:showAsAction="always" />
+
+
+    <item
+        android:id="@+id/menu_forward"
+        android:icon="@drawable/right"
+        android:title="@string/forward"
+        app:showAsAction="always" />
+
+
+    <item
+        android:id="@+id/mainMenu"
+        app:showAsAction="always"
+        android:title="@string/mainmenu"
+        android:icon="@drawable/menu">
+        <menu>
+            <item
+                android:id="@+id/menu_refresh"
+                android:icon="@drawable/refresh"
+                android:title="@string/refresh"
+                android:orderInCategory="100"
+                />
+
+        </menu>
+    </item>
+</menu>

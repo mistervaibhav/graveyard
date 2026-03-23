@@ -1,0 +1,11 @@
+@font-face {
+  font-family: AdindaMelia;
+  src: url('./AdindaMelia.otf') format('opentype');
+}
+
+#header {
+  .logo {
+    font-family: 'AdindaMelia';
+    font-size: 28px;
+  }
+}

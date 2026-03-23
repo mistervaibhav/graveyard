@@ -1,0 +1,11 @@
+.vscode
+.expo
+.expo-shared
+.husky
+.gitignore
+
+assets
+node_modules
+
+babel.config.js
+yarn.lock

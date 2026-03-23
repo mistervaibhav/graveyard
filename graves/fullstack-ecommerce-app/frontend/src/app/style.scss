@@ -1,0 +1,25 @@
+html {
+  //   scroll-snap-type: y mandatory;
+  //   overflow-y: scroll;
+}
+
+body {
+  background-color: #343a40;
+  // #header,
+  // #section-wrapper .product-section {
+  //   scroll-snap-align: start;
+  // }
+}
+
+.btn,
+.jumbotron,
+.nav :hover {
+  border-radius: 0px;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}

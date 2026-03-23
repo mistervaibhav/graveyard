@@ -1,0 +1,12 @@
+root = true
+
+[*.cs]
+# Bracing preferences
+csharp_new_line_before_open_brace = none
+csharp_new_line_before_else = false
+csharp_new_line_before_catch = false
+csharp_new_line_before_finally = false
+
+# Indentation preferences
+indent_style = space
+indent_size = 4

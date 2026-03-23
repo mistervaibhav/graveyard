@@ -1,0 +1,38 @@
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn i {
+  margin-right: 5px;
+}
+
+.btn span {
+  font-size: 18px;
+}
+
+.card-text {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.card-text strong {
+  margin-right: 5px;
+}
+.card-text i {
+  margin-right: 5px;
+}
+
+.small {
+  width: 100px;
+}
+
+.heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heading .music {
+  font-size: 100px;
+}

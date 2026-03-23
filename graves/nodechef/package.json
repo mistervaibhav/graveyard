@@ -1,0 +1,19 @@
+{
+  "name": "nodechef",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bin": "./src/index.js",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.10",
+    "ink": "^3.0.9",
+    "puppeteer": "^10.1.0",
+    "react": "^16.14.0"
+  }
+}

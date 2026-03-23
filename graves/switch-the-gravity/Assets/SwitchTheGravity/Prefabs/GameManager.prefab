@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &165264
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 464678}
+  - 114: {fileID: 11493490}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &464678
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 165264}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11493490
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 165264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f85e55388f9cb4f26b64a590087c034f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberOfPlayToShowInterstitial: 5
+  VerySimpleAdsURL: http://u3d.as/oWD
+  platforms: []
+  colors:
+  - colorA: {r: 0.60784316, g: 0.34901962, b: 0.7137255, a: 0.78431374}
+    colorB: {r: 0.18039216, g: 0.8000001, b: 0.4431373, a: 0.78431374}
+  - colorA: {r: 0.9058824, g: 0.29803923, b: 0.23529413, a: 0.78431374}
+    colorB: {r: 0.18039216, g: 0.8000001, b: 0.4431373, a: 0.78431374}
+  - colorA: {r: 0.9058824, g: 0.29803923, b: 0.23529413, a: 0.78431374}
+    colorB: {r: 0.60784316, g: 0.34901962, b: 0.7137255, a: 0.78431374}
+  - colorA: {r: 0.20392159, g: 0.59607846, b: 0.8588236, a: 0.78431374}
+    colorB: {r: 0.90196085, g: 0.49411768, b: 0.13333334, a: 0.78431374}
+  - colorA: {r: 0.9450981, g: 0.7686275, b: 0.058823533, a: 0.78431374}
+    colorB: {r: 0.18039216, g: 0.8000001, b: 0.4431373, a: 0.78431374}
+  - colorA: {r: 0.9450981, g: 0.7686275, b: 0.058823533, a: 0.78431374}
+    colorB: {r: 0.20392159, g: 0.59607846, b: 0.8588236, a: 0.78431374}
+  - colorA: {r: 0.9058824, g: 0.29803923, b: 0.23529413, a: 0.78431374}
+    colorB: {r: 0.20392159, g: 0.59607846, b: 0.8588236, a: 0.78431374}
+  randomizeColors: 1
+  changeColorEachXPoints: 5
+  platformPrefab: {fileID: 120072, guid: abdc22437e425406b970610ad7e55db1, type: 2}
+  player: {fileID: 0}
+  cameraFollowPlayer: {fileID: 0}
+  music: {fileID: 8300000, guid: e5b157728597643e7b978a50c3d3d27e, type: 3}
+  ExplosionGameOver: {fileID: 8300000, guid: 0a7cebe510a2c43c9a647351e3842850, type: 3}
+  timeToAddPoint: 1
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 165264}
+  m_IsPrefabParent: 1

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">BasicBrowser</string>
+    <string name="back">back</string>
+    <string name="forward">forward</string>
+    <string name="refresh">Refresh</string>
+    <string name="mainmenu">mainMenu</string>
+</resources>
